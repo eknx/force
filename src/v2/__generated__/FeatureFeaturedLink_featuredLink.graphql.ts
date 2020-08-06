@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
@@ -51,76 +52,71 @@ v1 = {
 },
 v2 = [
   {
-    "kind": "ScalarField",
     "alias": "src",
+    "args": null,
+    "kind": "ScalarField",
     "name": "url",
-    "args": null,
     "storageKey": null
   },
   {
-    "kind": "ScalarField",
     "alias": null,
+    "args": null,
+    "kind": "ScalarField",
     "name": "width",
-    "args": null,
     "storageKey": null
   },
   {
-    "kind": "ScalarField",
     "alias": null,
-    "name": "height",
     "args": null,
+    "kind": "ScalarField",
+    "name": "height",
     "storageKey": null
   }
 ];
 return {
-  "kind": "Fragment",
-  "name": "FeatureFeaturedLink_featuredLink",
-  "type": "FeaturedLink",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "FeatureFeaturedLink_featuredLink",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "href",
-      "args": null,
       "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "title",
-      "args": null,
       "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "subtitle",
       "args": (v0/*: any*/),
+      "kind": "ScalarField",
+      "name": "subtitle",
       "storageKey": "subtitle(format:\"HTML\")"
     },
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "description",
       "args": (v0/*: any*/),
+      "kind": "ScalarField",
+      "name": "description",
       "storageKey": "description(format:\"HTML\")"
     },
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "image",
-      "storageKey": null,
       "args": null,
       "concreteType": "Image",
+      "kind": "LinkedField",
+      "name": "image",
       "plural": false,
       "selections": [
         {
-          "kind": "LinkedField",
           "alias": "small",
-          "name": "cropped",
-          "storageKey": "cropped(height:1000,version:[\"wide\"],width:800)",
           "args": [
             {
               "kind": "Literal",
@@ -135,14 +131,14 @@ return {
             }
           ],
           "concreteType": "CroppedImageUrl",
+          "kind": "LinkedField",
+          "name": "cropped",
           "plural": false,
-          "selections": (v2/*: any*/)
+          "selections": (v2/*: any*/),
+          "storageKey": "cropped(height:1000,version:[\"wide\"],width:800)"
         },
         {
-          "kind": "LinkedField",
           "alias": "medium",
-          "name": "cropped",
-          "storageKey": "cropped(height:1365,version:[\"wide\"],width:1092)",
           "args": [
             {
               "kind": "Literal",
@@ -157,14 +153,14 @@ return {
             }
           ],
           "concreteType": "CroppedImageUrl",
+          "kind": "LinkedField",
+          "name": "cropped",
           "plural": false,
-          "selections": (v2/*: any*/)
+          "selections": (v2/*: any*/),
+          "storageKey": "cropped(height:1365,version:[\"wide\"],width:1092)"
         },
         {
-          "kind": "LinkedField",
           "alias": "large",
-          "name": "cropped",
-          "storageKey": "cropped(height:1252,version:[\"wide\"],width:2224)",
           "args": [
             {
               "kind": "Literal",
@@ -179,12 +175,17 @@ return {
             }
           ],
           "concreteType": "CroppedImageUrl",
+          "kind": "LinkedField",
+          "name": "cropped",
           "plural": false,
-          "selections": (v2/*: any*/)
+          "selections": (v2/*: any*/),
+          "storageKey": "cropped(height:1252,version:[\"wide\"],width:2224)"
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "FeaturedLink"
 };
 })();
 (node as any).hash = 'fa4bc7ff6104ce8d3d7efc5d766a3a74';

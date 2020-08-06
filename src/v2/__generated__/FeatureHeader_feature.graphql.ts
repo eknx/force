@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
@@ -21,23 +22,20 @@ export type FeatureHeader_feature$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "FeatureHeader_feature",
-  "type": "Feature",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "FeatureHeader_feature",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "name",
       "args": null,
+      "kind": "ScalarField",
+      "name": "name",
       "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "subheadline",
       "args": [
         {
           "kind": "Literal",
@@ -45,22 +43,20 @@ const node: ReaderFragment = {
           "value": "HTML"
         }
       ],
+      "kind": "ScalarField",
+      "name": "subheadline",
       "storageKey": "subheadline(format:\"HTML\")"
     },
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "image",
-      "storageKey": null,
       "args": null,
       "concreteType": "Image",
+      "kind": "LinkedField",
+      "name": "image",
       "plural": false,
       "selections": [
         {
-          "kind": "LinkedField",
           "alias": null,
-          "name": "cropped",
-          "storageKey": "cropped(height:2000,version:\"source\",width:2000)",
           "args": [
             {
               "kind": "Literal",
@@ -79,20 +75,25 @@ const node: ReaderFragment = {
             }
           ],
           "concreteType": "CroppedImageUrl",
+          "kind": "LinkedField",
+          "name": "cropped",
           "plural": false,
           "selections": [
             {
-              "kind": "ScalarField",
               "alias": null,
-              "name": "url",
               "args": null,
+              "kind": "ScalarField",
+              "name": "url",
               "storageKey": null
             }
-          ]
+          ],
+          "storageKey": "cropped(height:2000,version:\"source\",width:2000)"
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "Feature"
 };
 (node as any).hash = '4fad4b2f3161c349788d91adc1fc72b3';
 export default node;
