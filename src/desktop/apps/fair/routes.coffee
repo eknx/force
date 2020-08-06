@@ -1,5 +1,4 @@
 _ = require 'underscore'
-Q = require 'bluebird-q'
 moment = require 'moment'
 Backbone = require 'backbone'
 Profile = require '../../models/profile.coffee'
@@ -25,7 +24,7 @@ DEFAULT_CACHE_TIME = 60
   params = new Backbone.Model fair: fair.id
   filterData = { size: 0, fair_id: fair.id, aggregations: aggregationParams }
   infoMenu = new InfoMenu(fair: fair)
-  Q.all([
+  Promise.all([
     fair.fetch(cache: true, cacheTime: DEFAULT_CACHE_TIME)
     infoMenu.fetch(cache: true, cacheTime: DEFAULT_CACHE_TIME)
   ]).then () ->
@@ -113,6 +112,9 @@ DEFAULT_CACHE_TIME = 60
     error: res.backboneError
     success: (show) -> res.redirect "/show/#{show.id}"
 
+@malformedFilterRedirect = (req, res, next) ->
+  res.redirect 301, "/#{req.params.id}/browse/artworks"
+
 # Captures fair-specific sign-up.
 # Adds a user fair action to the users collector profile and follows the fair profile.
 # If the user is an attendee, redirect to fair page with flash message (found in ./components/capture_signup)
@@ -126,7 +128,7 @@ DEFAULT_CACHE_TIME = 60
 
   followProfile = new FollowProfile profile_id: res.locals.fair.profileId()
 
-  Q.all [
+  Promise.all [
     userFairActions.create
       fair_id: res.locals.fair.id
       action: validActions[action]

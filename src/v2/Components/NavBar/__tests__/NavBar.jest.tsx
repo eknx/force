@@ -37,7 +37,6 @@ describe("NavBar", () => {
   }
 
   beforeEach(() => {
-    jest.spyOn(console, "error").mockImplementation(() => {})
     ;(useTracking as jest.Mock).mockImplementation(() => {
       return {
         trackEvent,
@@ -57,8 +56,8 @@ describe("NavBar", () => {
 
   describe("desktop", () => {
     const defaultLinks = [
-      [undefined, "Artists"],
-      [undefined, "Artworks"],
+      ["/artists", "Artists"],
+      ["/collect", "Artworks"],
       ["/auctions", "Auctions"],
       ["/articles", "Editorial"],
     ]
@@ -99,13 +98,6 @@ describe("NavBar", () => {
     })
 
     describe("lab features", () => {
-      it("hides inquiries icon if lab feature not enabled", () => {
-        const wrapper = getWrapper({
-          user: { type: "NotAdmin", lab_features: [] },
-        })
-        expect(wrapper.find(EnvelopeIcon).length).toEqual(0)
-      })
-
       it("shows inquiries icon if lab feature enabled", () => {
         const wrapper = getWrapper({
           user: { type: "NotAdmin", lab_features: ["User Conversations View"] },

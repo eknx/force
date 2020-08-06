@@ -41,6 +41,7 @@ declare module "sharify" {
       readonly PREDICTION_URL: string
       readonly RECAPTCHA_KEY: string
       readonly SENTRY_PUBLIC_DSN: string
+      readonly SHOW_ANALYTICS_CALLS: boolean
       readonly STRIPE_PUBLISHABLE_KEY: string
       readonly VOLLEY_ENDPOINT: string
       readonly XAPP_TOKEN: string
@@ -67,14 +68,17 @@ declare module "sharify" {
       JSON_PAGE_DATA: any
       MARKETING_SIGNUP_MODALS: any
       MARKETING_SIGNUP_MODALS: any[]
+      PAGE_TYPE?: string
       PC_ARTSY_CHANNEL: string
       PC_AUCTION_CHANNEL: string
       POSITRON_URL: string
+      SESSION_ID?: string
+      SHOW_ANALYTICS_CALLS: boolean
       SUBMISSION: string
       SUBMISSION_ID: string
       SUBMISSION_ARTIST_NAME: string
       TARGET_CAMPAIGN_URL: string
-
+      TRACK_PAGELOAD_PATHS: string
       // FIXME: reaction migration
       stitch: any
     }
