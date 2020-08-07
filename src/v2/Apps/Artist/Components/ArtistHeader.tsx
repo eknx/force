@@ -1,5 +1,5 @@
 import { ContextModule, Intent } from "@artsy/cohesion"
-import { Box, Flex, Sans, Spacer } from "@artsy/palette"
+import { Box, Clickable, Flex, Sans, Spacer } from "@artsy/palette"
 import { ArtistHeader_artist } from "v2/__generated__/ArtistHeader_artist.graphql"
 import { HorizontalPadding } from "v2/Apps/Components/HorizontalPadding"
 import { Mediator, SystemContextConsumer } from "v2/Artsy"
@@ -190,17 +190,19 @@ export class SmallArtistHeader extends Component<Props> {
               user={user}
               render={({ is_followed }) => {
                 return (
-                  <Sans
-                    size="2"
-                    weight="medium"
-                    color="black"
-                    style={{
-                      cursor: "pointer",
-                      textDecoration: "underline",
-                    }}
-                  >
-                    {is_followed ? "Following" : "Follow"}
-                  </Sans>
+                  <Clickable>
+                    <Sans
+                      size="2"
+                      weight="medium"
+                      color="black"
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      {is_followed ? "Following" : "Follow"}
+                    </Sans>
+                  </Clickable>
                 )
               }}
               onOpenAuthModal={() =>
